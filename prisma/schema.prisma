@@ -1,77 +1,130 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
-enum UserRole {
+enum Role {
   CLIENT
   ADMIN
 }
 
+enum PlanType {
+  STARTER
+  HUB
+  ENTERPRISE
+}
+
 enum SpaceType {
-  SALA
-  COWORK
-  AUDITORIO
-  LAB
+  MEETING_ROOM
+  COWORKING
+  AUDITORIUM
+  LAB_TECH
 }
 
 enum ReservationStatus {
+  PENDING
   CONFIRMED
   CANCELED
 }
 
 model User {
-  id           String   @id @default(cuid())
-  name         String
-  email        String   @unique
+  id           String @id @default(cuid())
+  fullName     String
+  email        String @unique
   passwordHash String
-  role         UserRole @default(CLIENT)
+  role         Role   @default(CLIENT)
 
-  reservations Reservation[]
+  // Admin pertence a um hub
+  hubId String?
+  hub   Hub?    @relation("AdminHub", fields: [hubId], references: [id])
+
+  // Se este User for dono de um Hub
+  ownedHub Hub? @relation("HubOwner")
+
+  // Reservas do cliente
+  reservations Reservation[] @relation("ClientReservations")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([role])
+}
+
+model Hub {
+  id    String   @id @default(cuid())
+  name  String
+  phone String
+  city  String
+  state String
+  plan  PlanType @default(HUB)
+
+  // Dono do hub
+  ownerId String @unique
+  owner   User   @relation("HubOwner", fields: [ownerId], references: [id])
+
+  // Admins vinculados a este hub
+  admins User[] @relation("AdminHub")
+
+  spaces Space[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Space {
-  id        String    @id @default(cuid())
-  name      String
-  type      SpaceType
-  capacity  Int
-  location  String?
-  resources String?
-  isActive  Boolean   @default(true)
+  id    String @id @default(cuid())
+  hubId String
+  hub   Hub    @relation(fields: [hubId], references: [id])
+
+  name              String
+  type              SpaceType
+  capacity          Int
+  pricePerHourCents Int
+  location          String
+  imageUrl          String?
+  isActive          Boolean   @default(true)
 
   reservations Reservation[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@index([hubId])
   @@index([type])
-  @@index([capacity])
-  @@index([isActive])
 }
 
 model Reservation {
-  id       String            @id @default(cuid())
-  title    String
-  startAt  DateTime
-  endAt    DateTime
-  status   ReservationStatus @default(CONFIRMED)
-  notes    String?
+  id String @id @default(cuid())
 
-  spaceId  String
-  userId   String
-  space    Space @relation(fields: [spaceId], references: [id], onDelete: Cascade)
-  user     User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  spaceId String
+  space   Space  @relation(fields: [spaceId], references: [id])
+
+  clientId String
+  client   User   @relation("ClientReservations", fields: [clientId], references: [id])
+
+  status ReservationStatus @default(PENDING)
+
+  startAt         DateTime
+  endAt           DateTime
+  durationMinutes Int
+
+  totalPriceCents Int
+
+  canceledAt DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([spaceId, startAt, endAt])
-  @@index([userId, startAt])
+  @@index([clientId, startAt])
 }
