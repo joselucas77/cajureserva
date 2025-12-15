@@ -117,3 +117,7 @@ Crie um arquivo .env na raiz do projeto:
 ```bash
 pnpm dev
 ```
+
+### Usuário Admin já cadstrado:
+- **Email:** cajuhub@caju.com.br
+- **Senha:** Cajuhub@
