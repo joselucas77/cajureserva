@@ -63,7 +63,8 @@ type Space = {
   hub?: { name: string; city: string; state: string };
 };
 
-type ReservationForm = z.infer<typeof reservationSchema>;
+type ReservationFormInput = z.input<typeof reservationSchema>;
+type ReservationFormOutput = z.output<typeof reservationSchema>;
 
 export default function ClientSpacesPage() {
   const [spaces, setSpaces] = useState<Space[]>([]);
@@ -78,7 +79,7 @@ export default function ClientSpacesPage() {
     new Date()
   );
 
-  const form = useForm<ReservationForm>({
+  const form = useForm<ReservationFormInput, any, ReservationFormOutput>({
     resolver: zodResolver(reservationSchema),
     defaultValues: {
       spaceId: "",
@@ -106,7 +107,7 @@ export default function ClientSpacesPage() {
     });
   }, [spaces, filterType, search]);
 
-  async function submit(values: ReservationForm) {
+  async function submit(values: ReservationFormOutput) {
     const res = await fetch("/api/reservations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

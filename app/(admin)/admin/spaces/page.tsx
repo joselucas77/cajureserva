@@ -57,12 +57,13 @@ import { spaceCreateSchema } from "@/validators/space";
 import { toast } from "sonner";
 import { centsToBRL, SpaceTypeLabel } from "@/lib/time";
 
-type Form = z.infer<typeof spaceCreateSchema>;
+type SpaceFormInput = z.input<typeof spaceCreateSchema>;
+type SpaceFormOutput = z.output<typeof spaceCreateSchema>;
 
 type Space = {
   id: string;
   name: string;
-  type: Form["type"];
+  type: SpaceFormOutput["type"];
   capacity: number;
   pricePerHourCents: number;
   location: string;
@@ -95,7 +96,8 @@ export default function AdminSpaces() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  const form = useForm<Form>({
+  // const form = useForm<Form>({
+  const form = useForm<SpaceFormInput, any, SpaceFormOutput>({
     resolver: zodResolver(spaceCreateSchema),
     defaultValues: {
       name: "",
@@ -164,7 +166,7 @@ export default function AdminSpaces() {
     setIsDialogOpen(true);
   }
 
-  async function submit(values: Form) {
+  async function submit(values: SpaceFormOutput) {
     const payload = { ...values };
     console.log("Payload:", payload);
 
@@ -316,14 +318,19 @@ export default function AdminSpaces() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label>Capacidade</Label>
-                      <Input type="number" {...form.register("capacity")} />
+                      <Input
+                        type="number"
+                        {...form.register("capacity", { valueAsNumber: true })}
+                      />
                     </div>
                     <div className="space-y-2">
                       <Label>Preço/Hora (R$)</Label>
                       <Input
                         type="number"
                         step="0.01"
-                        {...form.register("pricePerHour")}
+                        {...form.register("pricePerHour", {
+                          valueAsNumber: true,
+                        })}
                       />
                     </div>
                   </div>
