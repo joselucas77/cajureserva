@@ -13,7 +13,8 @@ export type Session = {
 const COOKIE_NAME = process.env.SESSION_COOKIE_NAME ?? "cajureserva_token";
 
 export async function getSessionFromCookie(): Promise<Session | null> {
-  const token = cookies().get(COOKIE_NAME)?.value;
+  const cookieStore = await cookies(); // ✅ aqui
+  const token = cookieStore.get(COOKIE_NAME)?.value; // ✅ e aqui
   if (!token) return null;
 
   try {

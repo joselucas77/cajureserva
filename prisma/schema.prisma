@@ -9,9 +9,9 @@ generator client {
   output   = "../app/generated/prisma"
 }
 
-datasource db {
-  provider = "postgresql"
-}
+// datasource db {
+//   provider = "postgresql"
+// }
 
 enum Role {
   CLIENT
