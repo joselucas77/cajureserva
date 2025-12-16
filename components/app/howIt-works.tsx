@@ -65,7 +65,6 @@ export default function HowItWorks() {
   return (
     <section id="como-funciona" className="py-20 md:py-28 bg-surface">
       <div className="container">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +83,6 @@ export default function HowItWorks() {
           </p>
         </motion.div>
 
-        {/* Tabs */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex p-1.5 bg-muted rounded-xl">
             <button
@@ -110,9 +108,7 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* Steps */}
         <div className="relative w-sm md:w-6xl mx-auto">
-          {/* Linha conectora (só quando estiver em uma única linha) */}
           <div
             className={
               activeTab === "client"

@@ -58,7 +58,6 @@ export default function AdminDashboard() {
 
         if (!cancelled) setStats(normalized);
       } catch {
-        // Em caso de falha, evita quebrar o dashboard
         if (!cancelled) setStats(EMPTY_STATS);
       }
     })();

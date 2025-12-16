@@ -48,7 +48,6 @@ export async function PATCH(
     durationHours
   );
 
-  // Conflito (exceto a própria reserva)
   const conflict = await prisma.reservation.findFirst({
     where: {
       id: { not: current.id },

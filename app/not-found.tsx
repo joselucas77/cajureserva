@@ -5,7 +5,6 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-white via-orange-50/30 to-orange-100/20 px-4">
       <div className="max-w-2xl w-full text-center">
-        {/* Animated 404 Number */}
         <div className="mb-8 relative">
           <div className="text-[180px] md:text-[240px] font-bold text-orange-600/10 leading-none select-none">
             404
@@ -17,7 +16,6 @@ export default function NotFound() {
           </div>
         </div>
 
-        {/* Error Message */}
         <div className="mb-8 space-y-3">
           <h1 className="text-3xl md:text-5xl font-bold text-slate-900 text-balance">
             Página não encontrada
@@ -28,7 +26,6 @@ export default function NotFound() {
           </p>
         </div>
 
-        {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Link
             href="/"
@@ -46,7 +43,6 @@ export default function NotFound() {
           </Link>
         </div>
 
-        {/* Decorative Elements */}
         <div className="grid grid-cols-3 gap-4 max-w-md mx-auto opacity-50">
           <div
             className="h-2 bg-orange-200 rounded-full animate-pulse"

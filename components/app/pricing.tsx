@@ -19,7 +19,6 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Benefits List */}
         <div className="mb-16 rounded-2xl bg-white border border-slate-200 p-8 shadow-sm">
           <h3 className="mb-6 text-xl font-semibold text-slate-900">
             Todos os planos incluem:
@@ -64,7 +63,6 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* Pricing Cards */}
         <div className="grid gap-6 lg:grid-cols-3">
           <Card className="border-slate-200 hover:shadow-xl transition-all duration-300">
             <CardContent className="p-8">

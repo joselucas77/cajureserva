@@ -28,7 +28,7 @@ export async function signSessionToken(payload: SessionPayload) {
     hubId: payload.hubId ?? null,
   })
     .setProtectedHeader({ alg: "HS256" })
-    .setSubject(payload.sub) // ✅ padroniza payload.sub no verify
+    .setSubject(payload.sub)
     .setIssuedAt()
     .setExpirationTime("7d")
     .sign(key);
@@ -66,6 +66,6 @@ export const sessionCookie = {
     sameSite: "lax" as const,
     secure: process.env.NODE_ENV === "production",
     path: "/",
-    maxAge: 60 * 60 * 24 * 7, // 7 dias
+    maxAge: 60 * 60 * 24 * 7,
   },
 };

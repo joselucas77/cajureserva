@@ -17,7 +17,6 @@ export default function LogoutPage() {
           credentials: "include",
         });
       } catch {
-        // Mesmo se falhar, a gente redireciona.
       } finally {
         if (!cancelled) {
           router.replace("/");

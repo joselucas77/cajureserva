@@ -6,7 +6,7 @@ export async function GET() {
   if (!session) {
     return NextResponse.json(null, { status: 401 });
   }
-  // Return only what the client should see.
+
   return NextResponse.json(
     { user: session.user },
     { headers: { "Cache-Control": "no-store" } }

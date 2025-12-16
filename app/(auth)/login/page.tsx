@@ -81,7 +81,6 @@ export default function LoginPage() {
       return;
     }
 
-    // Cadastro de CLIENT
     const res = await fetch("/api/auth/register-client", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -93,7 +92,6 @@ export default function LoginPage() {
       return;
     }
 
-    // após cadastrar, já manda pro login
     toast("Conta criada com sucesso!", {
       description: "Você já pode fazer login com suas credenciais.",
       action: {
@@ -121,14 +119,7 @@ export default function LoginPage() {
             <span className="text-2xl font-bold text-primary">Caju</span>
             <span className="text-2xl font-bold text-foreground">Reserva</span>
           </Link>
-          <Link href="/login">
-            <Button
-              variant="outline"
-              className="border-slate-300 hover:bg-slate-50 bg-transparent"
-            >
-              Entrar
-            </Button>
-          </Link>
+          <div></div>
         </nav>
       </header>
       <main className="flex-1 flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">

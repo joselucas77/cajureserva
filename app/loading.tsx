@@ -4,7 +4,6 @@ export default function Loading() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-white via-orange-50/30 to-white">
       <div className="flex flex-col items-center gap-8">
-        {/* Logo/Brand */}
         <div className="relative">
           <div className="w-20 h-20 rounded-2xl bg-linear-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
             <svg
@@ -22,12 +21,10 @@ export default function Loading() {
             </svg>
           </div>
 
-          {/* Animated ring */}
           <div className="absolute inset-0 rounded-2xl border-4 border-orange-500/30 animate-ping" />
           <div className="absolute inset-0 rounded-2xl border-4 border-orange-500 animate-pulse" />
         </div>
 
-        {/* Loading text */}
         <div className="flex flex-col items-center gap-3">
           <h2 className="text-2xl font-semibold text-slate-900">CajuReserva</h2>
           <div className="flex items-center gap-2">
@@ -38,28 +35,10 @@ export default function Loading() {
           <p className="text-sm text-slate-600">Carregando...</p>
         </div>
 
-        {/* Progress bar */}
         <div className="w-64 h-1.5 bg-slate-100 rounded-full overflow-hidden">
           <div className="h-full bg-linear-to-r from-orange-500 to-orange-600 rounded-full animate-[loading_1.5s_ease-in-out_infinite]" />
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes loading {
-          0% {
-            width: 0%;
-            margin-left: 0%;
-          }
-          50% {
-            width: 75%;
-            margin-left: 0%;
-          }
-          100% {
-            width: 0%;
-            margin-left: 100%;
-          }
-        }
-      `}</style>
     </div>
   );
 }

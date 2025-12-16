@@ -65,7 +65,6 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile menu button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="lg:hidden rounded-md p-2 text-slate-700 hover:bg-slate-100"

@@ -53,7 +53,6 @@ export async function POST(req: Request) {
     parsed.data.durationHours
   );
 
-  // Conflito
   const conflict = await prisma.reservation.findFirst({
     where: {
       spaceId: space.id,

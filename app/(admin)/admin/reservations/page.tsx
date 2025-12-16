@@ -99,7 +99,6 @@ export default function AdminReservations() {
   }, [filterStatus, filterDate]);
 
   const filtered = useMemo(() => {
-    // busca local adicional (opcional)
     if (!searchTerm) return items;
     const q = searchTerm.toLowerCase();
     return items.filter((r) => {

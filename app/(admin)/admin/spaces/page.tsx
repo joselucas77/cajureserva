@@ -96,7 +96,6 @@ export default function AdminSpaces() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  // const form = useForm<Form>({
   const form = useForm<SpaceFormInput, any, SpaceFormOutput>({
     resolver: zodResolver(spaceCreateSchema),
     defaultValues: {

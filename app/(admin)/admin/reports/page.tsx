@@ -20,7 +20,6 @@ import {
   Cell,
 } from "recharts";
 
-// Mock data for reports
 const revenueByMonth = [
   { month: "Jan", revenue: 12500 },
   { month: "Fev", revenue: 15800 },
@@ -60,7 +59,6 @@ const occupancyRate = [
 export default function AdminReports() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      {/* Page Header */}
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold text-slate-900 text-balance">
@@ -72,9 +70,7 @@ export default function AdminReports() {
         </div>
       </div>
 
-      {/* Charts Section */}
       <div className="grid gap-6 lg:grid-cols-2 mb-8">
-        {/* Revenue Chart */}
         <Card className="border-slate-200">
           <CardHeader>
             <CardTitle className="text-lg font-bold text-slate-900">
@@ -104,7 +100,6 @@ export default function AdminReports() {
           </CardContent>
         </Card>
 
-        {/* Reservations by Type Pie Chart */}
         <Card className="border-slate-200">
           <CardHeader>
             <CardTitle className="text-lg font-bold text-slate-900">
@@ -143,7 +138,6 @@ export default function AdminReports() {
         </Card>
       </div>
 
-      {/* Occupancy Rate Chart */}
       <Card className="border-slate-200 mb-8">
         <CardHeader>
           <CardTitle className="text-lg font-bold text-slate-900">
@@ -173,9 +167,7 @@ export default function AdminReports() {
         </CardContent>
       </Card>
 
-      {/* Top Clients and Reservations by Type Tables */}
       <div className="grid gap-6 lg:grid-cols-2">
-        {/* Top Clients */}
         <Card className="border-slate-200">
           <CardHeader>
             <CardTitle className="text-lg font-bold text-slate-900">
@@ -214,7 +206,6 @@ export default function AdminReports() {
           </CardContent>
         </Card>
 
-        {/* Revenue by Space Type */}
         <Card className="border-slate-200">
           <CardHeader>
             <CardTitle className="text-lg font-bold text-slate-900">
