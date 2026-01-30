@@ -5,7 +5,7 @@ const spaces = [
   {
     title: "Sala de Reunião",
     image:
-      "https://lh3.googleusercontent.com/pw/AP1GczMZtQE1b37rbxQ3y-xAubhofpHjBpCxBX4Mn_qeCaPY8bwvbVi6WJZ9fWPytZOf_oTNfru0wnjTRBwAhI1AFB6YgBhsR_YQQFcbiBvJJ1x2z7KiFyHU6GIq9rDONiwCfBUO4UocsLUMpv11B8zf-22sxw=w640-h427-s-no-gm?authuser=0",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
     tags: [
       { icon: Users, label: "8 pessoas" },
       { icon: Monitor, label: "Projetor" },
@@ -15,7 +15,7 @@ const spaces = [
   {
     title: "Coworking",
     image:
-      "https://lh3.googleusercontent.com/pw/AP1GczPp89aEgrN50VHp6NOIaCGuafzfBYI3IVVyUji9UAwsHqlfP-C3x7vo2N-pmdM5PZUoR4q074G_yCQZpZoLgXUC9i1mKbZWJ47jD9AyDjFt4CvoNvLMGKRyTg5dAwJSkg83UAWBX8YGWFduDK6DnIkcCg=w640-h480-s-no-gm?authuser=0",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop",
     tags: [
       { icon: Users, label: "20 lugares" },
       { icon: Wifi, label: "Internet rápida" },
@@ -25,7 +25,7 @@ const spaces = [
   {
     title: "Auditório",
     image:
-      "https://lh3.googleusercontent.com/pw/AP1GczNIkkmgL9q-PMwqDExm2BX8lbQSGtHaRICVYHKFq6-OOc3xDdsYrq4xoeyqzEoucqyWra19L9hNGNmRg5rEuQ77iakblH00vbJorbufV33gK_1RVYNjCln7P9sFabtsAA1VAf4pHZfl3q-SIVbrWpQrHA=w1000-h564-s-no-gm?authuser=0",
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&h=400&fit=crop",
     tags: [
       { icon: Users, label: "100 pessoas" },
       { icon: Monitor, label: "Sistema de som" },
@@ -35,7 +35,7 @@ const spaces = [
   {
     title: "Lab Tech",
     image:
-      "https://lh3.googleusercontent.com/pw/AP1GczN61MRBA6suqq29d-NzG-W0sF7yFOZZv1ybsHGnDI4jo9-fboBCMUr64ZJZueP5Io6ibqsUL7sqmoeZK9IqQYeD5MGXlHVZVkm6kxcaAIx8Z5qEvLgGyoPicgoPlotX6TnFKRqGOMtKOauDo7Al0jiX1Q=w640-h427-s-no-gm?authuser=0",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop",
     tags: [
       { icon: Users, label: "12 pessoas" },
       { icon: Monitor, label: "Equipamentos" },

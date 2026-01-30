@@ -46,7 +46,7 @@ export default function HeroSection() {
             <div className="aspect-4/3 overflow-hidden rounded-2xl shadow-2xl">
               <Image
                 src={
-                  "https://lh3.googleusercontent.com/pw/AP1GczNpJ2GLDNBw8oduT9iTZVx7F2olULGa_ReUflXWJG5OKEYiOm5NTIASNeUwp_W8i-CcIaEPtQW48HqH2NXyBIw-L_S1M0vLEKuQdCtERP75e3yJcw4cPQnd-Ix8JQMF1jvaTDK2CJzrW_INuXqPOhOw9A=w640-h427-s-no-gm?authuser=0"
+                  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop"
                 }
                 width={640}
                 height={427}
